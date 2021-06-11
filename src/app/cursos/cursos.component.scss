@@ -1,0 +1,60 @@
+h1{
+  text-align: center;
+  background-color:darkgray;
+  color:black
+  // text-shadow:black 1px 0 20px;
+  
+}
+
+.container{
+  overflow: hidden;
+  display: grid;
+  column-gap: 15px;
+  grid-template-areas: 
+  "filedNome       filedNome   filedSobreNome  filedSobreNome"
+  "filedRG         fieldCPF    filedValorIdade filedValorIdade"
+  "filedEmail      filedEmail  adicionarIdade  removerIdade"
+  "fieldEstadoCivil .          .               .";
+
+  .filedNome{
+    grid-area: filedNome;
+  }
+  .filedSobreNome{
+    grid-area: filedSobreNome;
+  }
+  .filedValorIdade{
+  grid-area: filedValorIdade;
+  }
+  .filedEmail{
+    grid-area: filedEmail;
+  }
+  .filedRG{
+    grid-area: filedRG;
+  }
+  .fieldCPF{
+    grid-area: fieldCPF;
+  }
+  .adicionarIdade{
+    grid-area: adicionarIdade;
+    height: 50px;
+    margin-top: 3px;
+  }
+  .removerIdade{
+    grid-area: removerIdade;
+    height: 50px;
+    margin-top: 3px;
+  } 
+  .fieldEstadoCivil{
+    grid-area: fieldEstadoCivil;
+  }
+}
+
+button.mat-accent{
+  background-color:darkgray;
+  color:black ;
+}
+
+// ::ng-deep .mat-form-field-wrapper{
+//   padding-bottom: 0px;
+// }
+

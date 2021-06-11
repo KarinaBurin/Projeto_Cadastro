@@ -1,0 +1,98 @@
+<h1>{{title}}</h1>
+
+  <div class="container">
+    <mat-form-field class="field filedNome" 
+    appearance="outline">
+      <mat-label>Nome</mat-label>
+      <input [focusMe]='true' matInput placeholder="Nome">
+    </mat-form-field>
+
+    <mat-form-field class="field filedSobreNome" appearance="outline">
+      <mat-label>Sobrenome</mat-label>
+      <input matInput placeholder="Sobrenome" >
+    </mat-form-field>
+
+    <mat-form-field class="field filedCPF" appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input matInput placeholder="CPF" >
+    </mat-form-field>
+
+    <mat-form-field class="field filedRG" appearance="outline">
+      <mat-label>RG</mat-label>
+      <input matInput placeholder="RG" >
+    </mat-form-field>
+
+    <mat-form-field class="field filedValorIdade" appearance="outline">
+      <mat-label>Idade</mat-label>
+      <input matInput placeholder="Idade" value="{{valoresIdade[indexIdade]}}">
+    </mat-form-field>
+
+    <button class="field adicionarIdade"
+      mat-raised-button color="accent" 
+      [disabled]="valoresIdade[indexIdade] >=100"
+      (click)="incrementoIdade()">
+      {{botaoAdicionarIdade}}
+    </button>
+ 
+    <button class="field removerIdade"
+      mat-raised-button color="accent" 
+      [disabled]="valoresIdade[indexIdade] <=1" 
+      (click)="decrementoIdade()">
+      {{botaoRemoverIdade}}
+   </button>
+
+    <mat-form-field class="field filedEmail" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="email@example.com"  required >
+    </mat-form-field>
+
+    <mat-form-field class="fieldEstadoCivil"  appearance="fill">
+      <mat-label>Estado Civil</mat-label>
+      <mat-select > 
+         <mat-option *ngFor="let comboEstadoCivil of estadosCivis" [value]="comboEstadoCivil.value">
+          {{comboEstadoCivil.viewValue}}
+        </mat-option> 
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="botoes">
+    <button class="adicionar"
+      mat-raised-button color="accent" 
+      [disabled]="valoresIdade[indexIdade] >=100"
+      (click)="incrementoIdade()">
+      Inserir
+    </button>
+ 
+    <button class="Remover"
+      mat-raised-button color="accent" 
+      [disabled]="valoresIdade[indexIdade] <=1" 
+      (click)="decrementoIdade()">
+      Excluir
+   </button>
+  </div>
+
+<h1>{{listagem}}</h1>
+
+
+
+
+  
+  
+
+
+
+
+<!-- <ul>
+  <li *ngFor="let mes of meses index 0">
+    Meses: {{ mes }}
+  </li>
+</ul>
+
+<div class="botoesMeses" *ngIf="valorIdade == 0">
+  <button (click)="incrementoMeses()">
+    <i class="material-icons">block</i>
+  </button>
+  <button (click)="decrementoMeses()">
+    <i class="material-icons">block</i>
+  </button>
+</div> -->
