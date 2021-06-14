@@ -9,5 +9,8 @@ namespace BackEnd.ContractService
   public interface ICadastroService
   {
     Task<IEnumerable<Cadastro>> ListCadastroGrid();
+    Task CreateCadastro(string tabParametros);
+    Task DeleteCadastro(int id);
+
   }
 }

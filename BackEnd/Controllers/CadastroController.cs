@@ -22,7 +22,7 @@ namespace BackEnd.Controllers
       _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    [HttpGet]
+    [HttpGet("Grid", Name = nameof(GetAllAsync))]
     [ProducesResponseType(typeof(IEnumerable<CadastroViewModel>), StatusCodes.Status200OK)]
     public async Task<IActionResult> GetAllAsync()
     {
@@ -32,6 +32,26 @@ namespace BackEnd.Controllers
       return Ok(cadastroViewModels);
     }
 
+    [HttpPost]
+    [ProducesResponseType(typeof(CadastroViewModel), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> CreateAsync([FromBody] ParametrosCadastroViewModel ParametroviewModel)
+    {
+      var tabParametroJson = ParametroviewModel.ConvertModelToJSONCreate();
+      await _cadastroService.CreateCadastro(tabParametroJson);
+
+
+      return CreatedAtRoute(nameof(GetAllAsync), ParametroviewModel);
+    }
+
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> DeleteAsync([FromRoute] int id)
+    {
+      await _cadastroService.DeleteCadastro(id);
+      return NoContent();
+    }
 
   }
 }

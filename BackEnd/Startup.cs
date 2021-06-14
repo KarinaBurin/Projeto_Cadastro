@@ -1,56 +1,52 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BackEnd.Helpers;
 using BackEnd.Infrastructure.DI;
 using BackEnd.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using System;
 
 namespace BackEnd
 {
-    public class Startup
+  public class Startup
+  {
+    public Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
+      Configuration = configuration;
+    }
+    public IConfiguration Configuration { get; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
+    {
+      services.AddConfiguration<SettingsApplication>(Configuration, "SettingsApplication");
 
-          services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-          services.ResolveDependencies();
-          services.AddSwaggerDocs();
+      //var settings = Configuration.GetSection("SettingsApplication").Get<SettingsApplication>();
+      //services.AddJwtSecurity(signingConfigurations, settings);
+
+      services.AddControllers();
+
+     
+      services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+      services.ResolveDependencies();
+      services.AddSwaggerDocs();
     }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+      
 
-            app.UseHttpsRedirection();
-            app.UseSwaggerDocs();
-            app.UseRouting();
-            app.UseAuthorization();
+      app.UseHttpsRedirection();
+      app.UseSwaggerDocs();
+      app.UseRouting();
+      app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }
+      app.UseEndpoints(endpoints =>
+      {
+        endpoints.MapControllers();
+      });
     }
+  }
 }

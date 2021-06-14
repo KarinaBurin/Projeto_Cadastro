@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ProjetinhoAngular_Testes\\BackEnd\\BackEnd.csproj": {}
+    "E:\\Projeto_Cadastro\\BackEnd\\BackEnd.csproj": {}
   },
   "projects": {
-    "E:\\ProjetinhoAngular_Testes\\BackEnd\\BackEnd.csproj": {
+    "E:\\Projeto_Cadastro\\BackEnd\\BackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ProjetinhoAngular_Testes\\BackEnd\\BackEnd.csproj",
+        "projectUniqueName": "E:\\Projeto_Cadastro\\BackEnd\\BackEnd.csproj",
         "projectName": "BackEnd",
-        "projectPath": "E:\\ProjetinhoAngular_Testes\\BackEnd\\BackEnd.csproj",
+        "projectPath": "E:\\Projeto_Cadastro\\BackEnd\\BackEnd.csproj",
         "packagesPath": "C:\\Users\\karin\\.nuget\\packages\\",
-        "outputPath": "E:\\ProjetinhoAngular_Testes\\BackEnd\\obj\\",
+        "outputPath": "E:\\Projeto_Cadastro\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\PROGRAM FILES\\DOTNET\\sdk\\NuGetFallbackFolder"
@@ -48,6 +48,10 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.0.90, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

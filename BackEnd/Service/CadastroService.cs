@@ -20,5 +20,15 @@ namespace BackEnd.Service
     {
       return await _cadastroRepository.ListCadastroGrid();
     }
+
+    public async Task CreateCadastro(string tabParametros)
+    {
+      await _cadastroRepository.CreateCadastro(tabParametros);
+    }
+
+    public async Task DeleteCadastro(int id)
+    {
+      await _cadastroRepository.DeleteCadastro(id);
+    }
   }
 }
